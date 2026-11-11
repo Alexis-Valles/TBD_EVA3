@@ -1,0 +1,71 @@
+MySQL Shell 8.0.46
+
+Copyright (c) 2016, 2026, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Please provide the password for 'root@localhost':
+Save password for 'root@localhost'? [Y]es/[N]o/Ne[v]er (default No):
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 34
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306  SQL > use t3;
+Default schema set to `t3`.
+Fetching global names, object names from `t3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306  t3  SQL > select comparar_valores(2, 3);
++------------------------+
+| comparar_valores(2, 3) |
++------------------------+
+| 3Es mas grande         |
++------------------------+
+1 row in set (0.0007 sec)
+ MySQL  localhost:3306  t3  SQL > select comparar_valores(16, 4);
++-------------------------+
+| comparar_valores(16, 4) |
++-------------------------+
+| 16Es mas grande         |
++-------------------------+
+1 row in set (0.0004 sec)
+ MySQL  localhost:3306  t3  SQL > select es_par(4);
++-----------------+
+| es_par(4)       |
++-----------------+
+| El valor es par |
++-----------------+
+1 row in set (0.0006 sec)
+ MySQL  localhost:3306  t3  SQL > select es_par(9);
++-------------------+
+| es_par(9)         |
++-------------------+
+| El valor es impar |
++-------------------+
+1 row in set (0.0003 sec)
+ MySQL  localhost:3306  t3  SQL > select dia_semana(3);
++---------------+
+| dia_semana(3) |
++---------------+
+| martes        |
++---------------+
+1 row in set (0.0006 sec)
+ MySQL  localhost:3306  t3  SQL > create table city as select city_id, city from sakila.city;
+Query OK, 600 rows affected (0.0280 sec)
+
+Records: 600  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306  t3  SQL > select contar_ciudades();
+ERROR: 1146 (42S02): Table 't3.ciudad' doesn't exist
+ MySQL  localhost:3306  t3  SQL > rename table city to ciudad;
+Query OK, 0 rows affected (0.0108 sec)
+ MySQL  localhost:3306  t3  SQL > select contar_ciudades();
++-------------------+
+| contar_ciudades() |
++-------------------+
+|               600 |
++-------------------+
+1 row in set (0.0018 sec)
+ MySQL  localhost:3306  t3  SQL >
